@@ -16,14 +16,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20sp"
-            android:text="Username:"
+            android:text="@string/name"
+            android:textSize="20sp"
+            android:textColor="#C818C0"
             />
         <EditText
             android:id="@+id/username_EditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Username">
+            android:hint="@string/name"
+            android:backgroundTint="#EA0EC5"
+            >
 
         </EditText>
     </TableRow>
@@ -37,15 +40,17 @@
             android:id="@+id/password_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password:"
-            android:layout_marginEnd="20sp"/>
+            android:text="@string/pass"
+            android:layout_marginEnd="20sp"
+            android:textSize="20sp"
+            android:textColor="#C818C0"/>
         <EditText
             android:id="@+id/password_EditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="password"
-            android:inputType="textPassword">
+            android:hint="@string/pass"
+            android:inputType="textPassword"
+            android:backgroundTint="#EA0EC5">
 
         </EditText>
     </TableRow>
@@ -54,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
-        android:backgroundTint="#AE9627"
+        android:backgroundTint="#C30E9C"
         android:layout_marginStart="150sp"
         android:layout_marginEnd="150sp"
 
