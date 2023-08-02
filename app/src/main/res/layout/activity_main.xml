@@ -18,7 +18,8 @@
             android:layout_marginEnd="20sp"
             android:text="@string/name"
             android:textColor="#C818C0"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginStart="10sp"/>
 
         <EditText
             android:id="@+id/username_EditText"
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:text="@string/pass"
             android:layout_marginEnd="20sp"
+            android:layout_marginStart="10sp"
             android:textSize="20sp"
             android:textColor="#C818C0"/>
         <EditText
@@ -49,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:backgroundTint="#EA0EC5">
 
         </EditText>
