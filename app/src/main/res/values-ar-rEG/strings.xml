@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">First_Application</string>
     <string name="login">تسجيل الدخول</string>
-    <string name="pass">كلمه المرور</string>
-    <string name="name">اسم المستخدم</string>
+    <string name="pass"> كلمه المرور :</string>
+    <string name="name">اسم المستخدم :</string>
+    <string name="password"> كلمه المرور </string>
+    <string name="username">اسم المستخدم </string>
 </resources>
