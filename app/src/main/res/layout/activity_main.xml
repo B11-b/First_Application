@@ -1,71 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/tableLayout"
-    android:stretchColumns="1">
-
-    <TableRow
-        android:id="@+id/row1"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidLine"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75">
 
-        <TextView
-            android:id="@+id/username_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20sp"
-            android:text="@string/name"
-            android:textColor="#C818C0"
-            android:textSize="20sp"
-            android:layout_marginStart="10sp"/>
+    </androidx.constraintlayout.widget.Guideline>
 
-        <EditText
-            android:id="@+id/username_EditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/username"
-            android:backgroundTint="#EA0EC5"
-            >
 
-        </EditText>
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:id="@+id/password_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pass"
-            android:layout_marginEnd="20sp"
-            android:layout_marginStart="10sp"
-            android:textSize="20sp"
-            android:textColor="#C818C0"/>
-        <EditText
-            android:id="@+id/password_EditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:inputType="number"
-            android:backgroundTint="#EA0EC5">
-
-        </EditText>
-    </TableRow>
-    <Button
-        android:id="@+id/login_button"
+    <TextView
+        android:id="@+id/username_textV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:backgroundTint="#C30E9C"
-        android:layout_marginStart="150sp"
-        android:layout_marginEnd="150sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="10dp"
+        android:text="@string/name"
+        android:textColor="#9697A4"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
 
+    <TextView
+        android:id="@+id/password_textV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/pass"
+        android:textColor="#9697A4"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/username_textV"
+        app:layout_constraintTop_toBottomOf="@id/username_textV" />
+
+    <EditText
+        android:id="@+id/username_EditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintStart_toStartOf="@id/username_textV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username_textV"
+
+        android:textColor="#24253D"
+        >
+    </EditText>
+ <EditText
+    android:id="@+id/password_EditText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/password_textV"
+     app:layout_constraintStart_toStartOf="@id/username_textV"
+     app:layout_constraintEnd_toEndOf="@id/username_EditText"
+     android:textColor="#24253D"
+     android:inputType="textPassword">
+
+  </EditText>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#FF7D0D"
+        android:text="@string/login"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidLine"
 
         >
+
     </Button>
-</TableLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#FF2D00"
+        android:text="@string/Back"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/login_button"
+        app:layout_constraintEnd_toEndOf="@id/login_button"
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+         android:layout_marginTop="30dp"
+        >
+
+    </Button>
+    <TextView
+        android:id="@+id/hobby_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/football_ck"
+        app:layout_constraintEnd_toEndOf="@id/password_textV"
+        app:layout_constraintTop_toBottomOf="@id/password_EditText"
+        app:layout_constraintBottom_toTopOf="@id/football_ck"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/hobby"
+        android:textSize="14dp"
+        android:textColor="#3D3E57"
+        >
+
+    </TextView>
+
+    <CheckBox
+        android:id="@+id/football_ck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/password_EditText"
+        app:layout_constraintStart_toStartOf="@id/password_EditText"
+        android:layout_marginTop="25dp"
+        android:text="@string/FootBall"
+        android:textSize="14dp"
+        android:textColor="#3D3E57"
+        >
+
+    </CheckBox>
+    <CheckBox
+        android:id="@+id/swimming_ck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/football_ck"
+        app:layout_constraintStart_toStartOf="@id/football_ck"
+        android:text="@string/Swimming"
+        android:textSize="14dp"
+        android:textColor="#3D3E57"
+        >
+
+    </CheckBox>
+    <CheckBox
+        android:id="@+id/handball_ck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/swimming_ck"
+        app:layout_constraintStart_toStartOf="@id/swimming_ck"
+        android:text="@string/HandBall"
+        android:textSize="14dp"
+        android:textColor="#3D3E57"
+        >
+    </CheckBox>
+    <TextView
+        android:id="@+id/gender_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/radio_group"
+        app:layout_constraintTop_toBottomOf="@id/handball_ck"
+        android:layout_marginTop="10dp"
+        android:text="@string/gender"
+        android:textSize="14dp"
+        android:textColor="#3D3E57"
+        >
+
+    </TextView>
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/handball_ck"
+        app:layout_constraintTop_toBottomOf="@id/handball_ck"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        >
+        <RadioButton
+            android:id="@+id/female_RB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Female"
+            android:textSize="14dp"
+            android:textColor="#3D3E57"
+            >
+
+        </RadioButton>
+        <RadioButton
+            android:id="@+id/male_RB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Male"
+            android:textSize="14dp"
+            android:textColor="#3D3E57"
+            android:layout_marginStart="100dp"
+            >
+        </RadioButton>
+
+    </RadioGroup>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

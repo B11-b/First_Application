@@ -6,4 +6,12 @@
     <string name="name">اسم المستخدم :</string>
     <string name="password"> كلمه المرور </string>
     <string name="username">اسم المستخدم </string>
+    <string name="FootBall">كرة القدم </string>
+    <string name="Swimming">السباحه </string>
+    <string name="HandBall">كرة اليد </string>
+    <string name="Female">أنثي </string>
+    <string name="Male">ذكر </string>
+    <string name="Back"> تراجع </string>
+    <string name="hobby"> أختار رياضتك المفضله: </string>
+    <string name="gender">النوع: </string>
 </resources>

@@ -5,6 +5,14 @@
     <string name="name">username :</string>
     <string name="password">password </string>
     <string name="username">username </string>
+    <string name="FootBall">FootBall </string>
+    <string name="Swimming">Swimming </string>
+    <string name="HandBall">HandBall </string>
+    <string name="Female">Female </string>
+    <string name="Male">Male </string>
+    <string name="Back">Go Back </string>
+    <string name="hobby"> Choose your hobbies: </string>
+    <string name="gender">Gender : </string>
 
 
 </resources>
