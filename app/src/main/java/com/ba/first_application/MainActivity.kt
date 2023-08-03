@@ -18,13 +18,13 @@ import com.example.first_application.databinding.ActivityMainBinding
                 var sports=""
                 var gender=""
                 if(binding.footballCk.isChecked){
-                    sports+="Football   "
+                    sports+="Football,"
                 }
                 if(binding.swimmingCk.isChecked){
-                    sports+="Swimming   "
+                    sports+="Swimming,"
                 }
                 if(binding.handballCk.isChecked){
-                    sports+="Handball   "
+                    sports+="Handball "
                 }
                 if(binding.maleRB.isChecked){
                     gender="Male"
@@ -38,6 +38,11 @@ import com.example.first_application.databinding.ActivityMainBinding
                 else{
                    Toast.makeText(this,"Please go back ",Toast.LENGTH_LONG ).show()
                 }
+            }
+            binding.backbutton.setOnClickListener {
+
+                Toast.makeText(this,"Thank you ! ",Toast.LENGTH_LONG ).show()
+
             }
         }
     }

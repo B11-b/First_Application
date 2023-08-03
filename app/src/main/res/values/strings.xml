@@ -3,8 +3,8 @@
     <string name="login">Login</string>
     <string name="pass">password :</string>
     <string name="name">username :</string>
-    <string name="password">password </string>
-    <string name="username">username </string>
+    <string name="password">Enter your password </string>
+    <string name="username">Enter your username </string>
     <string name="FootBall">FootBall </string>
     <string name="Swimming">Swimming </string>
     <string name="HandBall">HandBall </string>

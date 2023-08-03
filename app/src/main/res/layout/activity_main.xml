@@ -22,9 +22,11 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginEnd="10dp"
         android:text="@string/name"
-        android:textColor="#9697A4"
-        android:textSize="20sp"
+        android:textColor="#24253D"
+        android:textSize="25sp"
         android:layout_margin="20dp"
+
+
         />
 
     <TextView
@@ -33,10 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="@string/pass"
-        android:textColor="#9697A4"
-        android:textSize="20sp"
+        android:textColor="#24253D"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@id/username_textV"
-        app:layout_constraintTop_toBottomOf="@id/username_textV" />
+        app:layout_constraintTop_toBottomOf="@id/username_textV"
+        />
 
     <EditText
         android:id="@+id/username_EditText"
@@ -46,9 +49,11 @@
         app:layout_constraintStart_toStartOf="@id/username_textV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/username_textV"
-
+        android:hint="@string/username"
+        android:textColorHint="#9697A4"
         android:textColor="#24253D"
-        >
+        android:autofillHints="username"
+        android:inputType="text">
     </EditText>
  <EditText
     android:id="@+id/password_EditText"
@@ -57,7 +62,10 @@
     app:layout_constraintTop_toBottomOf="@id/password_textV"
      app:layout_constraintStart_toStartOf="@id/username_textV"
      app:layout_constraintEnd_toEndOf="@id/username_EditText"
+     android:hint="@string/password"
+     android:textColorHint="#9697A4"
      android:textColor="#24253D"
+     android:autofillHints="password"
      android:inputType="textPassword">
 
   </EditText>
@@ -72,12 +80,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guidLine"
-
         >
 
     </Button>
     <Button
-        android:id="@+id/button"
+        android:id="@+id/backbutton"
         android:layout_width="336dp"
         android:layout_height="48dp"
         android:backgroundTint="#FF2D00"
@@ -87,6 +94,7 @@
         app:layout_constraintEnd_toEndOf="@id/login_button"
         app:layout_constraintTop_toBottomOf="@id/login_button"
          android:layout_marginTop="30dp"
+
         >
 
     </Button>
@@ -102,8 +110,8 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="20dp"
         android:text="@string/hobby"
-        android:textSize="14dp"
-        android:textColor="#3D3E57"
+        android:textSize="15sp"
+        android:textColor="#24253D"
         >
 
     </TextView>
@@ -114,10 +122,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/password_EditText"
         app:layout_constraintStart_toStartOf="@id/password_EditText"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="25sp"
         android:text="@string/FootBall"
-        android:textSize="14dp"
-        android:textColor="#3D3E57"
+        android:textSize="15sp"
+        android:textColor="#24253D"
         >
 
     </CheckBox>
@@ -128,8 +136,8 @@
         app:layout_constraintTop_toBottomOf="@id/football_ck"
         app:layout_constraintStart_toStartOf="@id/football_ck"
         android:text="@string/Swimming"
-        android:textSize="14dp"
-        android:textColor="#3D3E57"
+        android:textSize="14sp"
+        android:textColor="#24253D"
         >
 
     </CheckBox>
@@ -140,8 +148,8 @@
         app:layout_constraintTop_toBottomOf="@id/swimming_ck"
         app:layout_constraintStart_toStartOf="@id/swimming_ck"
         android:text="@string/HandBall"
-        android:textSize="14dp"
-        android:textColor="#3D3E57"
+        android:textSize="14sp"
+        android:textColor="#24253D"
         >
     </CheckBox>
     <TextView
@@ -152,7 +160,7 @@
         app:layout_constraintTop_toBottomOf="@id/handball_ck"
         android:layout_marginTop="10dp"
         android:text="@string/gender"
-        android:textSize="14dp"
+        android:textSize="15sp"
         android:textColor="#3D3E57"
         >
 
@@ -171,8 +179,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Female"
-            android:textSize="14dp"
-            android:textColor="#3D3E57"
+            android:textSize="15sp"
+            android:textColor="#24253D"
             >
 
         </RadioButton>
@@ -181,8 +189,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Male"
-            android:textSize="14dp"
-            android:textColor="#3D3E57"
+            android:textSize="15sp"
+            android:textColor="#24253D"
             android:layout_marginStart="100dp"
             >
         </RadioButton>
