@@ -14,8 +14,13 @@
     <string name="hobby"> Choose your hobbies: </string>
     <string name="gender">Gender : </string>
     <string name="Ok"> Okay </string>
-    <string name="google">sign in with Google </string>
+    <string name="google">continue with Google </string>
     <string name="facebook">sign in with Facebook </string>
+    <string name="signUp">Sign Up  </string>
+    <string name="signIn">Sign In </string>
+    <string name="Forget_pass"> Forget password ? </string>
+
+
 
 
 </resources>

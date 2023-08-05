@@ -6,12 +6,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.first_application.databinding.ActivitySecondBinding
 
-lateinit var binding: ActivitySecondBinding
+
 class SecondActivity: AppCompatActivity() {
+    lateinit var binding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         var username=intent.extras?.getString("USERNAME","")
         binding.usernameSecond.text= username

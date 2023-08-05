@@ -15,6 +15,9 @@
     <string name="hobby"> أختار رياضتك المفضله: </string>
     <string name="gender">النوع: </string>
     <string name="Ok"> تم </string>
-    <string name="google">تسجيل الدخول عن طريق جوجل</string>
+    <string name="google"> تكمله عن طريق جوجل </string>
     <string name="facebook">تسجيل الدخول عن طريق فيس بوك </string>
+    <string name="signUp"> تسجيل جديد </string>
+    <string name="signIn"> تسجيل دخول </string>
+    <string name="Forget_pass">  نسيت كلمه السر؟  </string>
 </resources>

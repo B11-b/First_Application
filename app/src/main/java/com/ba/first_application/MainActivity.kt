@@ -42,7 +42,7 @@ import com.example.first_application.databinding.ActivityMainBinding
                else{
                    Toast.makeText(this,"Please go back ",Toast.LENGTH_LONG ).show()
                }*/
-
+                //to pass data from screen to another
                 val intent=Intent(this,SecondActivity::class.java)
                 intent.putExtra("USERNAME",binding.usernameEditText.text.toString())
                intent.putExtra("message","Hi $username  your hobbies : $sports  Gender is: $gender")

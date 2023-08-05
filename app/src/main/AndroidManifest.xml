@@ -13,7 +13,14 @@
         android:theme="@style/Theme.First_Application"
         tools:targetApi="33" >
         <activity
-            android:name="com.ba.first_application.MainActivity"
+            android:name="com.ba.first_application.MainActivity">
+
+        </activity>
+        <activity
+            android:name="com.ba.first_application.SecondActivity">
+        </activity>
+        <activity
+            android:name="com.ba.first_application.ThirdActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,9 +28,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.ba.first_application.SecondActivity">
-        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
     </application>
 
