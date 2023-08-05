@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidLine_second"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80">
+
+    </androidx.constraintlayout.widget.Guideline>
+
+    <TextView
+        android:id="@+id/username_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:text=""
+        android:textColor="#24253D"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+
+
+        />
+    <TextView
+        android:id="@+id/password_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/username_second"
+        app:layout_constraintStart_toStartOf="@id/username_second"
+        app:layout_constraintEnd_toEndOf="@id/username_second"
+        android:layout_marginEnd="10dp"
+        android:text=""
+        android:textColor="#24253D"
+        android:textSize="25sp"
+        android:layout_marginTop="30dp"
+
+
+        />
+    <RadioGroup
+        android:id="@+id/radio_group_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username_second"
+        android:orientation="horizontal"
+        android:layout_marginTop="90dp"
+        >
+        <RadioButton
+            android:id="@+id/google_RB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/google"
+            android:textSize="15sp"
+            android:textColor="#24253D"
+            >
+
+        </RadioButton>
+        <RadioButton
+            android:id="@+id/facebook_RB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:text="@string/facebook"
+            android:textSize="15sp"
+            android:textColor="#24253D"
+           android:layout_marginStart="10dp"
+            >
+        </RadioButton>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#FF7D0D"
+        android:text="@string/Ok"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidLine_second"
+        tools:ignore="MissingConstraints">
+
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

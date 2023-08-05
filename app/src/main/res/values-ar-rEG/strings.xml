@@ -14,4 +14,7 @@
     <string name="Back"> تراجع </string>
     <string name="hobby"> أختار رياضتك المفضله: </string>
     <string name="gender">النوع: </string>
+    <string name="Ok"> تم </string>
+    <string name="google">تسجيل الدخول عن طريق جوجل</string>
+    <string name="facebook">تسجيل الدخول عن طريق فيس بوك </string>
 </resources>
