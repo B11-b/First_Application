@@ -17,7 +17,7 @@ class ThirdActivity: AppCompatActivity() {
 
         binding.signinButton.setOnClickListener {
             //to move from activity to another
-            startActivity(Intent(this, MainActivity::class.java))
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 

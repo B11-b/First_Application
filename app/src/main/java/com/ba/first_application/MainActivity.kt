@@ -15,6 +15,8 @@ import com.example.first_application.databinding.ActivityMainBinding
             binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
 
+
+
            binding.loginButton.setOnClickListener {
                val username=binding.usernameEditText.text
                val password=binding.passwordEditText.text
@@ -45,16 +47,17 @@ import com.example.first_application.databinding.ActivityMainBinding
                 //to pass data from screen to another
                 val intent=Intent(this,SecondActivity::class.java)
                 intent.putExtra("USERNAME",binding.usernameEditText.text.toString())
-               intent.putExtra("message","Hi $username  your hobbies : $sports  Gender is: $gender")
+               intent.putExtra("message","Hi $username,your hobbies : $sports, Gender is: $gender")
                 startActivityForResult(intent,11)
 
 
             }
-            binding.backbutton.setOnClickListener {
+            binding.backButton.setOnClickListener {
+                val intent = Intent(this, ThirdActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this,"Thank You !",Toast.LENGTH_LONG).show()
+            }
 
-               Toast.makeText(this,"Thank you ! ",Toast.LENGTH_LONG ).show()
-
-                }
             }
 
 

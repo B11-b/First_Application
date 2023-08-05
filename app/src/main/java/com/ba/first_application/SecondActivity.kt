@@ -31,6 +31,10 @@ class SecondActivity: AppCompatActivity() {
            setResult(resultCode,intent)
            finish()
        }
+        binding.back.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
