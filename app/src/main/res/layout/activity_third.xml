@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65">
+
+    </androidx.constraintlayout.widget.Guideline>
+
+    <ImageView
+        android:layout_width="1477pt"
+        android:layout_height="500pt"
+        android:src="@drawable/map"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#FF2D00"
+        android:text="@string/google"
+        android:textSize="14sp"
+        style="@style/CardView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidLine"
+
+        >
+
+    </Button>
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#FF7D0D"
+        android:text="@string/signUp"
+        style="@style/CardView"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@id/login_button"
+        app:layout_constraintEnd_toEndOf="@id/login_button"
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+        android:layout_marginTop="16dp"
+
+        >
+
+    </Button>
+    <Button
+        android:id="@+id/signin_button"
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/signIn"
+        style="@style/CardView"
+        android:textColor="#FF7D0D"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/login_button"
+        app:layout_constraintEnd_toEndOf="@id/login_button"
+        app:layout_constraintTop_toBottomOf="@id/signup_button"
+        android:layout_marginTop="16dp"
+
+
+        >
+
+    </Button>
+    <TextView
+        android:id="@+id/forget_pass"
+        android:layout_width="140dp"
+        android:layout_height="22dp"
+        app:layout_constraintTop_toBottomOf="@id/signin_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:text="@string/Forget_pass"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:textColor="#E84A00"
+        android:textSize="14sp"
+        android:layout_margin="20dp"
+
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
