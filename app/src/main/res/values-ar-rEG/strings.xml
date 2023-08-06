@@ -20,4 +20,9 @@
     <string name="signUp"> تسجيل جديد </string>
     <string name="signIn"> تسجيل دخول </string>
     <string name="Forget_pass">  نسيت كلمه السر؟  </string>
+    <string name="Title"> أهلاً بك </string>
+    <string name="exit"> خروج </string>
+    <string name="next"> التالي </string>
+    <string name="back"> رجوع </string>
+    <string name="msg">هل انت متأكد من الخروج ؟ </string>
 </resources>

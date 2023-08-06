@@ -19,6 +19,12 @@
     <string name="signUp">Sign Up  </string>
     <string name="signIn">Sign In </string>
     <string name="Forget_pass"> Forget password ? </string>
+    <string name="Title"> Welcome </string>
+    <string name="exit"> Exit </string>
+    <string name="next"> Next </string>
+    <string name="back"> Back </string>
+    <string name="msg"> Are you sure you want to exit ? </string>
+
 
 
 
