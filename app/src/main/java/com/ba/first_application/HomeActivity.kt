@@ -2,6 +2,7 @@ package com.ba.first_application
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -20,6 +21,7 @@ class HomeActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         binding.signinButton.setOnClickListener {
             //to move from activity to another
@@ -45,7 +47,7 @@ class HomeActivity: AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+   /* override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.main_menu,menu)
         return true
@@ -86,5 +88,7 @@ class HomeActivity: AppCompatActivity() {
                 true
             }
         }
-    }
+    }*/
+
+
 }

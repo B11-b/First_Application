@@ -6,12 +6,25 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
         android:label= "First_Application"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.First_Application"
         tools:targetApi="33" >
+        <activity android:name="com.ba.first_application.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ba.first_application.HomeActivity"
+            android:theme="@style/SplashTheme"
+            >
+        </activity>
         <activity
             android:name="com.ba.first_application.MainActivity">
 
@@ -19,20 +32,14 @@
         <activity
             android:name="com.ba.first_application.SecondActivity">
         </activity>
-        <activity
-            android:name="com.ba.first_application.ThirdActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

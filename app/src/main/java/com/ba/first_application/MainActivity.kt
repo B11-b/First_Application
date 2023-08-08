@@ -36,15 +36,6 @@ import com.example.first_application.databinding.ActivityMainBinding
                }else{
                    gender="Female"
                }
-             /*  if ((username.isNotEmpty())&&(password.isNotEmpty())&&
-                   ((binding.footballCk.isChecked)|| (binding.swimmingCk.isChecked) ||(binding.handballCk.isChecked))
-                   &&((binding.maleRB.isChecked)|| (binding.femaleRB.isChecked))){
-                   Toast.makeText(this,"Hi $username  your hobbies : $sports  Gender is: $gender"   ,Toast.LENGTH_SHORT ).show()
-               }
-               else{
-                   Toast.makeText(this,"Please go back ",Toast.LENGTH_LONG ).show()
-               }*/
-
                 //to pass data from screen to another
                 val intent=Intent(this,SecondActivity::class.java)
                 intent.putExtra("USERNAME",binding.usernameEditText.text.toString())
@@ -68,13 +59,12 @@ import com.example.first_application.databinding.ActivityMainBinding
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
             return when(item.itemId){
-                R.id.exit -> {
+                  R.id.exit -> {
                     val dialogBuilder: AlertDialog.Builder= AlertDialog.Builder(this)
                     dialogBuilder.setTitle(R.string.Title)
                     dialogBuilder.setMessage(R.string.msg)
                     dialogBuilder.setCancelable(true)
                     dialogBuilder.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
-
                         finish()
                     })
                     dialogBuilder.setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
@@ -83,16 +73,17 @@ import com.example.first_application.databinding.ActivityMainBinding
                     val alertDialog=dialogBuilder.create()
                     alertDialog.show()
                     true}
-                R.id.next -> {
-                    startActivity(Intent(this,SecondActivity::class.java))
+                  R.id.next -> {
+                    startActivity(Intent(this, SecondActivity::class.java))
+
                     true}
-                R.id.back -> {
-                    startActivity(Intent(this,HomeActivity::class.java))
+                  R.id.back -> {
+                    startActivity(Intent(this, HomeActivity::class.java))
                     true}
-                else->{
+                  else->{
                     super.onOptionsItemSelected(item)
                     true
-                }
+                  }
             }
         }
 
