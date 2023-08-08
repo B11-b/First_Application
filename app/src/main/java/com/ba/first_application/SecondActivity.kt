@@ -12,28 +12,32 @@ import com.example.first_application.R
 import com.example.first_application.databinding.ActivitySecondBinding
 
 
-class SecondActivity: AppCompatActivity() {
+class SecondActivity: AppCompatActivity(),myCustomClickListener {
     lateinit var binding: ActivitySecondBinding
     lateinit var postAdapter: CustomAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Toast.makeText(this,intent.extras?.getString("message"),Toast.LENGTH_LONG).show()
-        val post= arrayListOf(Post("Your Trip","Monday 4:30pm","https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_1280.jpg","",3,"")
-                              ,Post(" Your Trip","Sunday 3:30pm","https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg","",4,""),
-                               Post("Your Trip","Tuesday 6:00pm","https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg","",4,""),
-                               Post("Your Trip","Thursday 9:30pm","https://cdn.pixabay.com/photo/2014/01/02/10/14/beach-hut-237489_1280.jpg","",2,""),
-                               Post("Your Trip","Friday 1:10pm","https://cdn.pixabay.com/photo/2017/01/12/00/14/maldives-1973322_1280.jpg","",5,""),
-                               Post("Your Trip","Saturday 2:30pm","https://cdn.pixabay.com/photo/2020/01/15/20/37/sea-4768869_1280.jpg","",4,""),
-                               Post("Your Trip","Sunday 4:30pm","https://cdn.pixabay.com/photo/2017/01/12/00/14/maldives-1973322_1280.jpg","",3,""),
-                               Post("Your Trip","Tuesday 7:30pm","https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg","",4,""),
-                               Post("Your Trip","Friday 1:10pm","https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg","",4,""))
+       // Toast.makeText(this,intent.extras?.getString("message"),Toast.LENGTH_LONG).show()
+        val post= arrayListOf(Post("Maldives,South seas","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_1280.jpg","",3,"")
+                              ,Post(" Bali,indusia","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg","",4,""),
+                               Post("Morocco","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg","",4,""),
+                               Post("Hurghada","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2014/01/02/10/14/beach-hut-237489_1280.jpg","",2,""),
+                               Post("SwitzerLand","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/01/12/00/14/maldives-1973322_1280.jpg","",5,""),
+                               Post("North coast","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2020/01/15/20/37/sea-4768869_1280.jpg","",4,""),
+                               Post("Albania","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/01/12/00/14/maldives-1973322_1280.jpg","",3,""),
+                               Post("Bahamas","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg","",4,""),
+                               Post("YGreece","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg","",4,""))
 
-        postAdapter=CustomAdapter(post)
+        postAdapter=CustomAdapter(post,this)
 
         binding.postRv.adapter=postAdapter
     }
+
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -61,7 +65,7 @@ class SecondActivity: AppCompatActivity() {
             }
 
             R.id.next -> {
-                Toast.makeText(this,"error!",Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, PostDetails::class.java))
                 true
             }
 
@@ -75,5 +79,13 @@ class SecondActivity: AppCompatActivity() {
                 true
             }
         }
+    }
+
+    override fun onItemClick(post: Post, position: Int) {
+        var intent=Intent(this, PostDetails::class.java)
+        intent.putExtra("title",post.title)
+        intent.putExtra("details",post.details)
+        intent.putExtra("image",post.imageView)
+        startActivity(intent)
     }
 }

@@ -32,6 +32,10 @@
         <activity
             android:name="com.ba.first_application.SecondActivity">
         </activity>
+        <activity
+            android:name="com.ba.first_application.PostDetails">
+
+        </activity>
 
 
         <meta-data

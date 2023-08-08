@@ -38,7 +38,7 @@ import com.example.first_application.databinding.ActivityMainBinding
                }
                 //to pass data from screen to another
                 val intent=Intent(this,SecondActivity::class.java)
-                intent.putExtra("USERNAME",binding.usernameEditText.text.toString())
+               intent.putExtra("USERNAME",binding.usernameEditText.text.toString())
                intent.putExtra("message","Hi $username,your hobbies : $sports, Gender is: $gender")
                 startActivityForResult(intent,11)
 

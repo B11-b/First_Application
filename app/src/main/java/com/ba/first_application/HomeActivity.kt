@@ -47,48 +47,6 @@ class HomeActivity: AppCompatActivity() {
 
     }
 
-   /* override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
-        menuInflater.inflate(R.menu.main_menu,menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        return when(item.itemId){
-            R.id.exit -> {
-                val dialogBuilder: AlertDialog.Builder= AlertDialog.Builder(this)
-                dialogBuilder.setTitle(R.string.Title)
-                dialogBuilder.setMessage(R.string.msg)
-                dialogBuilder.setCancelable(true)
-                dialogBuilder.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
-                    finish()
-                })
-                dialogBuilder.setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
-                    dialog.cancel()
-                })
-                val alertDialog=dialogBuilder.create()
-                alertDialog.show()
-            true}
-            R.id.next -> {
-                val dialogBuilder: AlertDialog.Builder= AlertDialog.Builder(this)
-                dialogBuilder.setMessage(R.string.Title)
-                dialogBuilder.setCancelable(true)
-                dialogBuilder.setPositiveButton("Continue", DialogInterface.OnClickListener { dialog, which ->
-                    startActivity(Intent(this,MainActivity::class.java))
-                })
-                val alertDialog=dialogBuilder.create()
-                alertDialog.show()
-                true}
-            R.id.back -> {
-                Toast.makeText(this,"Can't go back!",Toast.LENGTH_SHORT).show()
-                true}
-            else->{
-                super.onOptionsItemSelected(item)
-                true
-            }
-        }
-    }*/
 
 
 }
