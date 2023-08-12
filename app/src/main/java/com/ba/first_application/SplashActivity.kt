@@ -15,6 +15,13 @@ class SplashActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Handler().postDelayed({startActivity(Intent(this,HomeActivity::class.java))},2000)
+        val SharedPref=applicationContext.getSharedPreferences("UserPref", MODE_PRIVATE)
+        val isLogged=SharedPref.getBoolean("IS_LOGGIN",false)
+        Handler().postDelayed(
+            { if (isLogged){
+                startActivity(Intent(this,SecondActivity::class.java))}
+
+            else{startActivity(Intent(this,HomeActivity::class.java))}
+            },2000)}
+
     }
-}

@@ -1,5 +1,6 @@
 package com.ba.first_application
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -17,30 +18,27 @@ import com.example.first_application.databinding.ActivityMainBinding
             super.onCreate(savedInstanceState)
             binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
+            val Pref=applicationContext.getSharedPreferences("MySharedPreference", Context.MODE_PRIVATE)
+            val editor=Pref.edit()
+            editor.putString("UserNmae","Bansaih")
+            editor.putBoolean("log",true)
+            editor.putInt("",1)
+            editor.commit()
            binding.loginButton.setOnClickListener {
+               val SharedPref=applicationContext.getSharedPreferences("UserPref", MODE_PRIVATE)
+               val editor=SharedPref.edit()
+               editor.putString("USERNAME",binding.usernameEditText.text.toString())
+               editor.putString("Password",binding.passwordEditText.text.toString())
+               editor.putBoolean("IS_LOGGIN",true)
+               editor.commit()
                val username=binding.usernameEditText.text
-               val password=binding.passwordEditText.text
-               var gender=""
-               var sports=""
-               if(binding.footballCk.isChecked){
-                   sports+="Football,"
-               }
-               if(binding.swimmingCk.isChecked){
-                   sports+="Swimming,"
-               }
-               if(binding.handballCk.isChecked){
-                   sports+="Handball "
-               }
-               if(binding.maleRB.isChecked){
-                   gender="Male"
-               }else{
-                   gender="Female"
-               }
                 //to pass data from screen to another
-                val intent=Intent(this,SecondActivity::class.java)
-               intent.putExtra("USERNAME",binding.usernameEditText.text.toString())
-               intent.putExtra("message","Hi $username,your hobbies : $sports, Gender is: $gender")
-                startActivityForResult(intent,11)
+               val intent=Intent(this,SecondActivity::class.java)
+               startActivity(intent)
+               finish()
+              // intent.putExtra("USERNAME",binding.usernameEditText.text.toString())
+               //intent.putExtra("message","Hi $username")
+               // startActivityForResult(intent,11)
 
 
             }
@@ -92,10 +90,10 @@ import com.example.first_application.databinding.ActivityMainBinding
             super.onActivityResult(requestCode, resultCode, data)
             if(requestCode==11){
                 if (resultCode==1){
-                    Toast.makeText(this,"Logged in by Google",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Arabic",Toast.LENGTH_LONG).show()
                 }
                 else if(resultCode==2){
-                    Toast.makeText(this,"Logged in by Facebook",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"English",Toast.LENGTH_LONG).show()
                 }
 
             }

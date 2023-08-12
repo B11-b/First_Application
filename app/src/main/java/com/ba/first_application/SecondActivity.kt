@@ -8,8 +8,14 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.ba.first_application.model.Post
+import com.ba.first_application.model.uttils.ApiInterface
+import com.ba.first_application.model.uttils.RetroFitClient
 import com.example.first_application.R
 import com.example.first_application.databinding.ActivitySecondBinding
+import retrofit2.Retrofit
+import retrofit2.create
 
 
 class SecondActivity: AppCompatActivity(),myCustomClickListener {
@@ -19,20 +25,35 @@ class SecondActivity: AppCompatActivity(),myCustomClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
-       // Toast.makeText(this,intent.extras?.getString("message"),Toast.LENGTH_LONG).show()
-        val post= arrayListOf(Post("Maldives,South seas","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_1280.jpg","",3,"")
-                              ,Post(" Bali,indusia","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg","",4,""),
-                               Post("Morocco","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg","",4,""),
-                               Post("Hurghada","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2014/01/02/10/14/beach-hut-237489_1280.jpg","",2,""),
-                               Post("SwitzerLand","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/01/12/00/14/maldives-1973322_1280.jpg","",5,""),
-                               Post("North coast","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2020/01/15/20/37/sea-4768869_1280.jpg","",4,""),
-                               Post("Albania","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/01/12/00/14/maldives-1973322_1280.jpg","",3,""),
-                               Post("Bahamas","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg","",4,""),
-                               Post("YGreece","No two trips are alike, so you will find information in this section for a variety of trip types. Whether you prefer staying in a resort or camping under the stars, we’ve included the details you need to be safe and happy on your USA trip.","https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg","",4,""))
+       Toast.makeText(this,intent.extras?.getString("message"),Toast.LENGTH_LONG).show()
+        val post= arrayListOf(
+            Post(  1, "" ,"Maldives,South seas","No two trips are alike.","https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_1280.jpg"),
+            Post(1, "" ," Bali,indusia","No two trips are alike","https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg"),
+                               Post(1, "" ,"Morocco","No two trips are alike.","https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg"),
+                               Post(1, "" ,"Hurghada","No two trips are alike.","https://cdn.pixabay.com/photo/2014/01/02/10/14/beach-hut-237489_1280.jpg"),
+                               Post(1, "" ,"SwitzerLand","No two trips are alike.","https://cdn.pixabay.com/photo/2017/01/12/00/14/maldives-1973322_1280.jpg"),
+                               Post(1, "" ,"North coast","No two trips are alike ","https://cdn.pixabay.com/photo/2020/01/15/20/37/sea-4768869_1280.jpg"),
+                               Post(1, "" ,"Albania","No two trips are alike.","https://cdn.pixabay.com/photo/2017/01/12/00/14/maldives-1973322_1280.jpg"),
+                               Post(1, "" ,"Bahamas","No two trips are alike","https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg"),
+                               Post(1, "" ,"YGreece","No two trips are alike.","https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg")
+        )
 
-        postAdapter=CustomAdapter(post,this)
 
-        binding.postRv.adapter=postAdapter
+
+
+            var retrofit=RetroFitClient.getInstance().create(ApiInterface::class.java)
+            lifecycleScope.launchWhenCreated {
+                val response= retrofit.getUsers()
+                if (response.isSuccessful) {
+                    postAdapter= (CustomAdapter(response.body()?.data ?: arrayListOf<Post>(),this@SecondActivity))
+                    binding.postRv.adapter=postAdapter
+
+                }else{
+                    Toast.makeText(this@SecondActivity,"error!",Toast.LENGTH_SHORT).show()
+                }
+            }
+
+
     }
 
 
@@ -48,20 +69,16 @@ class SecondActivity: AppCompatActivity(),myCustomClickListener {
 
         return when (item.itemId) {
             R.id.exit -> {
-                val dialogBuilder: AlertDialog.Builder= AlertDialog.Builder(this)
-                dialogBuilder.setTitle(R.string.Title)
-                dialogBuilder.setMessage(R.string.msg)
-                dialogBuilder.setCancelable(true)
-                dialogBuilder.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                val SharedPref=applicationContext.getSharedPreferences("UserPref", MODE_PRIVATE)
+                val editor=SharedPref.edit()
+                editor.remove("USERNAME")
+                editor.remove("Password")
+                editor.putBoolean("IS_LOGGIN",false)
+                editor.commit()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+               true
 
-                    finish()
-                })
-                dialogBuilder.setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
-                    dialog.cancel()
-                })
-                val alertDialog=dialogBuilder.create()
-                alertDialog.show()
-                true
             }
 
             R.id.next -> {
@@ -83,9 +100,12 @@ class SecondActivity: AppCompatActivity(),myCustomClickListener {
 
     override fun onItemClick(post: Post, position: Int) {
         var intent=Intent(this, PostDetails::class.java)
-        intent.putExtra("title",post.title)
+        intent.putExtra("title",post.name)
         intent.putExtra("details",post.details)
+        intent.putExtra("name",post.name)
         intent.putExtra("image",post.imageView)
         startActivity(intent)
     }
+
+
 }

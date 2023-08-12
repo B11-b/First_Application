@@ -2,31 +2,22 @@ package com.ba.first_application
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.first_application.R
 import com.example.first_application.databinding.ActivityHomeBinding
 
-
-
-class HomeActivity: AppCompatActivity() {
-    lateinit var binding:ActivityHomeBinding
+class HomeActivity:AppCompatActivity() {
+    lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         binding.signinButton.setOnClickListener {
             //to move from activity to another
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this,MainActivity::class.java))
         }
         binding.forgetPass.setOnClickListener {
             //create dialog
@@ -44,9 +35,5 @@ class HomeActivity: AppCompatActivity() {
             val alertDialog=dialogBuilder.create()
             alertDialog.show()
         }
-
     }
-
-
-
 }
