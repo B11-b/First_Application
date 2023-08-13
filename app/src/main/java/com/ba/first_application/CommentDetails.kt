@@ -8,12 +8,17 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.ba.first_application.model.Comment
+import com.ba.first_application.model.Post
+import com.ba.first_application.model.uttils.ApiInterface
 import com.example.first_application.R
 import com.example.first_application.databinding.CommentDetailsBinding
 
-class CommentDetails:AppCompatActivity() {
+class CommentDetails:AppCompatActivity(),myCustomClickListener{
     lateinit var binding: CommentDetailsBinding
     lateinit var commentAdapter: CommentAdapter
+    lateinit var retrofit: ApiInterface
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = CommentDetailsBinding.inflate(layoutInflater)
@@ -27,6 +32,22 @@ class CommentDetails:AppCompatActivity() {
 
 
     }
+    override fun onItemClick(post: Post, position: Int) {
+        var intent=Intent(this, CommentDetails::class.java)
+        lifecycleScope.launchWhenCreated {
+            val response= retrofit.getComments(post.id)
+            if (response.isSuccessful) {
+
+            }else{
+
+            }
+        }
+    }
+
+    override fun onItemClick2(comment: Comment, position: Int) {
+
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when(item.itemId){
