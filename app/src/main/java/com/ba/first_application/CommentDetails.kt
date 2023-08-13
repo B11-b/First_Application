@@ -25,7 +25,7 @@ class CommentDetails:AppCompatActivity(),myCustomClickListener{
         super.onCreate(savedInstanceState)
         binding = CommentDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        retrofit= RetroFitClient.getInstance("https://jsonplaceholder.typicode.com/posts/")
+        retrofit= RetroFitClient.getInstance("https://jsonplaceholder.typicode.com/")
         lifecycleScope.launchWhenCreated {
             val response= retrofit.getComments(intent.extras?.getInt("postId")?: 0 )
             if (response.isSuccessful) {
