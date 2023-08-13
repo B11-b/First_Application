@@ -24,7 +24,7 @@ class SecondActivity: AppCompatActivity(),myCustomClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        retrofit=RetroFitClient.getInstance()
+        retrofit=RetroFitClient.getInstance("https://jsonplaceholder.typicode.com/")
 
         binding.submitButton.setOnClickListener {
 
@@ -87,27 +87,11 @@ class SecondActivity: AppCompatActivity(),myCustomClickListener {
 
 
     override fun onItemClick(post: Post, position: Int) {
-         var intent=Intent(this, CommentDetails::class.java)
-        lifecycleScope.launchWhenCreated {
-            val response= retrofit.getComments(post.id)
-            if (response.isSuccessful) {
-                val comment=response.body()?.get(0)
-                val intent=Intent(this@SecondActivity,CommentDetails::class.java)
-                intent.putExtra("postId",comment?.postId)
-                intent.putExtra("id",comment?.id)
-                intent.putExtra("name",comment?.name)
-                intent.putExtra("email",comment?.email)
-                intent.putExtra("body",comment?.body)
-
-            }else{
-                Toast.makeText(this@SecondActivity,"error!",Toast.LENGTH_SHORT).show()
-            }
-        }
+        val intent=Intent(this@SecondActivity,CommentDetails::class.java)
+        intent.putExtra("postId",post.id)
+        startActivity(intent)
      }
 
-    override fun onItemClick2(comment: Comment, position: Int) {
-        TODO("Not yet implemented")
-    }
 
 
 }

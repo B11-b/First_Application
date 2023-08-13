@@ -9,14 +9,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 object RetroFitClient {
+    //https://jsonplaceholder.typicode.com/
+    //https://dummyjson.com/
     @SuppressLint("SuspiciousIndentation")
-    fun getInstance():ApiInterface{
+    fun getInstance(baseUrl:String):ApiInterface{
        var interceptor=HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
          var okHttpClient=OkHttpClient.Builder().addInterceptor(interceptor).build()
 
            return Retrofit.Builder()
-               .baseUrl("https://jsonplaceholder.typicode.com/")
+               .baseUrl(baseUrl)
                .addConverterFactory(GsonConverterFactory.create())
                .client(okHttpClient)
                .build().create(ApiInterface::class.java)

@@ -50,6 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/username_textV"
         android:hint="@string/username"
+
         android:textColorHint="#9697A4"
         android:textColor="#24253D"
         android:autofillHints="username"

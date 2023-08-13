@@ -9,9 +9,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ba.first_application.model.Comment
 import com.ba.first_application.model.Post
 import com.ba.first_application.model.uttils.ApiInterface
+import com.ba.first_application.model.uttils.RetroFitClient
 import com.example.first_application.R
 import com.example.first_application.databinding.CommentDetailsBinding
 
@@ -23,8 +25,25 @@ class CommentDetails:AppCompatActivity(),myCustomClickListener{
         super.onCreate(savedInstanceState)
         binding = CommentDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        retrofit= RetroFitClient.getInstance("https://jsonplaceholder.typicode.com/posts/")
+        lifecycleScope.launchWhenCreated {
+            val response= retrofit.getComments(intent.extras?.getInt("postId")?: 0 )
+            if (response.isSuccessful) {
+              val comments= response.body()?:ArrayList<Comment>()
+                binding.commentRv.adapter=CommentAdapter(comments)
 
+            }else{
 
+            }
+//        var response= retrofit.getComments(intent.extras?.getInt("postId").toString())
+//        if (response.isSuccessful) { var comments=response.body()?: ArrayList<Comment>()
+//
+//            binding.commentRv.adapter=CommentAdapter(comments)
+//
+//        }else{
+//
+//        }
+        }
        // Picasso.get().load(image).into(binding.detailImage)
         //binding.name.text=Fname
         //binding.name.text=Lname
@@ -32,21 +51,11 @@ class CommentDetails:AppCompatActivity(),myCustomClickListener{
 
 
     }
-    override fun onItemClick(post: Post, position: Int) {
-        var intent=Intent(this, CommentDetails::class.java)
-        lifecycleScope.launchWhenCreated {
-            val response= retrofit.getComments(post.id)
-            if (response.isSuccessful) {
 
-            }else{
 
-            }
-        }
-    }
+   // override fun onItemClick2(comment: Comment, position: Int) {
 
-    override fun onItemClick2(comment: Comment, position: Int) {
-
-    }
+    //}
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
@@ -81,4 +90,10 @@ class CommentDetails:AppCompatActivity(),myCustomClickListener{
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
+
+    override fun onItemClick(post: Post, position: Int) {
+        TODO("Not yet implemented")
+    }
+
+
 }
