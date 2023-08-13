@@ -2,17 +2,13 @@ package com.ba.first_application.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Post(
-    @SerializedName("id ")
+data class Post (
+    @SerializedName("userId")
+    var UserId:Int,
+    @SerializedName("id")
     var id:Int,
-    @SerializedName("email ")
+    @SerializedName("title")
     var title:String,
-    @SerializedName("first_name")
-    var name:String,
-    @SerializedName("last_name")
-    var details:String,
-    @SerializedName("avatar")
-    var imageView: String, ) {
-
+    @SerializedName("body")
+    var body:String){
 }
-

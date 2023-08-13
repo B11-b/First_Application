@@ -9,26 +9,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.first_application.R
-import com.example.first_application.databinding.ActivitySecondBinding
-import com.example.first_application.databinding.PostDetailsBinding
-import com.example.first_application.databinding.PostItemBinding
-import com.squareup.picasso.Picasso
+import com.example.first_application.databinding.CommentDetailsBinding
 
-class PostDetails:AppCompatActivity() {
-    lateinit var binding: PostDetailsBinding
+class CommentDetails:AppCompatActivity() {
+    lateinit var binding: CommentDetailsBinding
+    lateinit var commentAdapter: CommentAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = PostDetailsBinding.inflate(layoutInflater)
+        binding = CommentDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var title=intent.extras?.getString("title","no title")
-        var details=intent.extras?.getString("details","no title")
-        var image=intent.extras?.getString("image","no title")
 
 
-        Picasso.get().load(image).into(binding.detailImage)
-        binding.detailTitle.text=title
-        binding.details.text=details
-
+       // Picasso.get().load(image).into(binding.detailImage)
+        //binding.name.text=Fname
+        //binding.name.text=Lname
+        //binding.email.text=email
 
 
     }

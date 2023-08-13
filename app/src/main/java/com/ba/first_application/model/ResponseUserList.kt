@@ -10,9 +10,9 @@ data class ResponseUserList(
     @SerializedName("total")
     var total:Int,
     @SerializedName("total_pages")
-    var total_pages:Int ,
+    var total_pages:Int,
     @SerializedName("data")
-    var data: ArrayList<Post>,
+    var data: ArrayList<User>,
     @SerializedName("support")
     var support: Support
 ) {

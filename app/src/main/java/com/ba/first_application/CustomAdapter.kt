@@ -9,7 +9,7 @@ import com.example.first_application.databinding.PostItemBinding
 import com.squareup.picasso.Picasso
 
 
-class CustomAdapter(var postList:ArrayList<Post>, var listener: myCustomClickListener): RecyclerView.Adapter<CustomAdapter.viewHolder>() {
+class CustomAdapter(var PostList:ArrayList<Post>, var listener: myCustomClickListener): RecyclerView.Adapter<CustomAdapter.viewHolder>() {
     inner class viewHolder(val binding: PostItemBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
@@ -20,22 +20,24 @@ class CustomAdapter(var postList:ArrayList<Post>, var listener: myCustomClickLis
 
 
     override fun getItemCount(): Int {
-       return postList.size
+       return PostList.size
     }
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
-        holder.binding.postName.text=postList[position].title
-        holder.binding.postDate.text=postList[position].name
-        holder.binding.rate.text="${postList[position].id}"
-        holder.binding.postName.text=postList[position].details
+        holder.binding.userId.text=" UserId:${PostList[position].UserId} "
 
-       // holder.binding.rate.text= postList[position].rate.toString()
+        holder.binding.postId.text="PostId:${PostList[position].id}"
 
-        if(postList[position].imageView.isNotEmpty()) {
-            Picasso.get().load(postList[position].imageView).placeholder(R.drawable.loading).into(holder.binding.postImage)
-        }
+        holder.binding.postTitle.text="Post title:${PostList[position].title}"
+
+        holder.binding.postBody.text="Body:${PostList[position].body}"
+
+
+        /*if(PostList[position].imageView.isNotEmpty()) {
+            Picasso.get().load(PostList[position].imageView).placeholder(R.drawable.loading).into(holder.binding.postImage)
+        }*/
        holder.binding.root.setOnClickListener{
-           listener.onItemClick(postList[position],position)
+           listener.onItemClick(PostList[position],position)
        }
 
     }
