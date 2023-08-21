@@ -1,4 +1,4 @@
-package com.ba.first_application.model
+package com.ba.first_application.core.model.responce
 
 import com.google.gson.annotations.SerializedName
 

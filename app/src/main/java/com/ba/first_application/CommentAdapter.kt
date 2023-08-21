@@ -3,8 +3,7 @@ package com.ba.first_application
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ba.first_application.model.Comment
-import com.ba.first_application.model.Post
+import com.ba.first_application.core.model.Comment
 import com.example.first_application.databinding.CommentItemBinding
 
 class CommentAdapter(var CommentList:ArrayList<Comment>): RecyclerView.Adapter<CommentAdapter.viewHolder>() {

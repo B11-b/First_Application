@@ -1,8 +1,6 @@
 package com.ba.first_application
 
-import com.ba.first_application.model.Comment
-import com.ba.first_application.model.Post
-import com.ba.first_application.model.User
+import com.ba.first_application.core.model.Post
 
 interface myCustomClickListener {
     fun onItemClick(post: Post, position:Int)

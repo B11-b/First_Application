@@ -20,17 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.ba.first_application.HomeActivity"
+        <activity android:name="com.ba.first_application.ui.home.HomeActivity"
            >
 
         </activity>
         <activity
 
-            android:name="com.ba.first_application.MainActivity"
+            android:name="com.ba.first_application.ui.login.loginActivity"
             >
         </activity>
         <activity
-            android:name="com.ba.first_application.SecondActivity">
+            android:name="com.ba.first_application.ui.second.SecondActivity">
         </activity>
         <activity
             android:name="com.ba.first_application.CommentDetails">

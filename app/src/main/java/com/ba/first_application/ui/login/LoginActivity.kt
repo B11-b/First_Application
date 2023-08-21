@@ -1,4 +1,4 @@
-package com.ba.first_application
+package com.ba.first_application.ui.login
 
 import android.content.Context
 import android.content.DialogInterface
@@ -10,22 +10,25 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.ba.first_application.model.LoginBodyRequest
-import com.ba.first_application.model.uttils.ApiInterface
-import com.ba.first_application.model.uttils.RetroFitClient
+import com.ba.first_application.ui.home.HomeActivity
+import com.ba.first_application.ui.second.SecondActivity
+import com.ba.first_application.core.model.body.LoginBodyRequest
+import com.ba.first_application.core.data_source.remote.ApiInterface
+import com.ba.first_application.core.data_source.remote.RetroFitClient
 import com.example.first_application.R
 import com.example.first_application.databinding.ActivityMainBinding
-import java.nio.file.Files.move
 
-class MainActivity: AppCompatActivity() {
+class loginActivity: AppCompatActivity() {
 
         lateinit var binding: ActivityMainBinding
         lateinit var retrofit: ApiInterface
+        lateinit var viewModel: LoginViewModel
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
-            retrofit=RetroFitClient.getInstance("https://dummyjson.com/")
+            viewModel=LoginViewModel()
+            retrofit= RetroFitClient.getInstance("https://dummyjson.com/")
             val Pref=applicationContext.getSharedPreferences("MySharedPreference", Context.MODE_PRIVATE)
             val editor=Pref.edit()
             val username=binding.usernameEditText.text
@@ -33,21 +36,21 @@ class MainActivity: AppCompatActivity() {
             editor.putBoolean("log",true)
             editor.putInt("",1)
             editor.commit()
+            viewModel.loginData.observe(this){
+                Toast.makeText(this,"Welcome ${it.body()?.firstname}",Toast.LENGTH_LONG).show()
+            }
            binding.loginButton.setOnClickListener {
+              viewModel.startLogin(binding.usernameEditText.text.toString(),binding.passwordEditText.text.toString())
 
-                 lifecycleScope.launchWhenCreated{
-
-                     val response=retrofit.login(LoginBodyRequest(binding.usernameEditText.text.toString(),binding.passwordEditText.text.toString()))
-                     if (response.isSuccessful){
-                         moveToScreen()
-                     }else{
-
-                     }
-                 }
-
-
-
-
+//                lifecycleScope.launchWhenCreated{
+//
+//                     val response=retrofit.login(LoginBodyRequest(binding.usernameEditText.text.toString(),binding.passwordEditText.text.toString()))
+//                     if (response.isSuccessful){
+//                         moveToScreen()
+//                    }else{
+//
+//                    }
+//                 }
               // intent.putExtra("USERNAME",binding.usernameEditText.text.toString())
                //intent.putExtra("message","Hi $username")
                // startActivityForResult(intent,11)
@@ -69,7 +72,7 @@ class MainActivity: AppCompatActivity() {
         editor.putBoolean("IS_LOGGIN",true)
         editor.commit()
         //to pass data from screen to another
-        val intent=Intent(this,SecondActivity::class.java)
+        val intent=Intent(this, SecondActivity::class.java)
         startActivity(intent)
         finish() }
         override fun onCreateOptionsMenu(menu: Menu?): Boolean {

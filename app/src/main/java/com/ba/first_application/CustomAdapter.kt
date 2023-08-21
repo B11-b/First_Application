@@ -3,10 +3,8 @@ package com.ba.first_application
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ba.first_application.model.Post
-import com.example.first_application.R
+import com.ba.first_application.core.model.Post
 import com.example.first_application.databinding.PostItemBinding
-import com.squareup.picasso.Picasso
 
 
 class CustomAdapter(var PostList:ArrayList<Post>, var listener: myCustomClickListener): RecyclerView.Adapter<CustomAdapter.viewHolder>() {

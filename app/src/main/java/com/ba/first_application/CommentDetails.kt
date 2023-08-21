@@ -9,11 +9,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.ba.first_application.model.Comment
-import com.ba.first_application.model.Post
-import com.ba.first_application.model.uttils.ApiInterface
-import com.ba.first_application.model.uttils.RetroFitClient
+import com.ba.first_application.core.model.Comment
+import com.ba.first_application.core.model.Post
+import com.ba.first_application.core.data_source.remote.ApiInterface
+import com.ba.first_application.core.data_source.remote.RetroFitClient
+import com.ba.first_application.ui.second.SecondActivity
 import com.example.first_application.R
 import com.example.first_application.databinding.CommentDetailsBinding
 

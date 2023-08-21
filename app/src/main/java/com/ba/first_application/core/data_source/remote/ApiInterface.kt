@@ -1,9 +1,9 @@
-package com.ba.first_application.model.uttils
+package com.ba.first_application.core.data_source.remote
 
-import com.ba.first_application.model.Comment
-import com.ba.first_application.model.LoginBodyRequest
-import com.ba.first_application.model.Post
-import com.ba.first_application.model.UserResponse
+import com.ba.first_application.core.model.Comment
+import com.ba.first_application.core.model.body.LoginBodyRequest
+import com.ba.first_application.core.model.Post
+import com.ba.first_application.core.model.responce.UserResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -21,6 +21,6 @@ interface ApiInterface {
     @GET("posts/{post_id}/comments")
     suspend fun getComments(@Path("post_id") postId: Int):Response<ArrayList<Comment>>
     @POST("auth/login")
-    suspend fun login(@Body body:LoginBodyRequest): Response<UserResponse>
+    suspend fun login(@Body body: LoginBodyRequest): Response<UserResponse>
 
 }

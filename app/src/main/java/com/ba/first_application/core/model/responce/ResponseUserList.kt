@@ -1,5 +1,7 @@
-package com.ba.first_application.model
+package com.ba.first_application.core.model.responce
 
+import com.ba.first_application.core.model.Support
+import com.ba.first_application.core.model.User
 import com.google.gson.annotations.SerializedName
 
 data class ResponseUserList(

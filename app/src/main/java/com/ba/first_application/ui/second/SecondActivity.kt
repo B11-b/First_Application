@@ -1,4 +1,4 @@
-package com.ba.first_application
+package com.ba.first_application.ui.second
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,23 +8,26 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ba.first_application.model.Comment
-import com.ba.first_application.model.Post
-import com.ba.first_application.model.uttils.ApiInterface
-import com.ba.first_application.model.uttils.RetroFitClient
+import com.ba.first_application.CommentDetails
+import com.ba.first_application.CustomAdapter
+import com.ba.first_application.core.model.Post
+import com.ba.first_application.core.data_source.remote.ApiInterface
+import com.ba.first_application.core.data_source.remote.RetroFitClient
+import com.ba.first_application.myCustomClickListener
+import com.ba.first_application.ui.login.loginActivity
 import com.example.first_application.R
 import com.example.first_application.databinding.ActivitySecondBinding
 
 
-class SecondActivity: AppCompatActivity(),myCustomClickListener {
+class SecondActivity: AppCompatActivity(), myCustomClickListener {
     lateinit var binding: ActivitySecondBinding
     lateinit var postAdapter: CustomAdapter
-    lateinit var retrofit:ApiInterface
+    lateinit var retrofit: ApiInterface
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        retrofit=RetroFitClient.getInstance("https://jsonplaceholder.typicode.com/")
+        retrofit= RetroFitClient.getInstance("https://jsonplaceholder.typicode.com/")
 
         binding.submitButton.setOnClickListener {
 
@@ -61,7 +64,7 @@ class SecondActivity: AppCompatActivity(),myCustomClickListener {
                 editor.remove("Password")
                 editor.putBoolean("IS_LOGGIN",false)
                 editor.commit()
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, loginActivity::class.java))
                 finish()
                true
 
@@ -73,7 +76,7 @@ class SecondActivity: AppCompatActivity(),myCustomClickListener {
             }
 
             R.id.back -> {
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, loginActivity::class.java))
 
                 true
             }
@@ -87,7 +90,7 @@ class SecondActivity: AppCompatActivity(),myCustomClickListener {
 
 
     override fun onItemClick(post: Post, position: Int) {
-        val intent=Intent(this@SecondActivity,CommentDetails::class.java)
+        val intent=Intent(this@SecondActivity, CommentDetails::class.java)
         intent.putExtra("postId",post.id)
         startActivity(intent)
      }

@@ -1,4 +1,4 @@
-package com.ba.first_application
+package com.ba.first_application.ui.home
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.ba.first_application.ui.login.loginActivity
 import com.example.first_application.R
 import com.example.first_application.databinding.ActivityHomeBinding
 
@@ -17,7 +18,7 @@ class HomeActivity:AppCompatActivity() {
         setContentView(binding.root)
         binding.signinButton.setOnClickListener {
             //to move from activity to another
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, loginActivity::class.java))
         }
         binding.forgetPass.setOnClickListener {
             //create dialog
